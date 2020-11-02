@@ -8904,12 +8904,12 @@ abstract class Repository
 	 * addition, deleted 'trash can' or residue. Next, the different groups
 	 * of beans will be processed accordingly and the reference bean (i.e.
 	 * the one that was passed to the method as an argument) will be stored.
-	 * Each type of list (own/shared) has 3 bean processors: 
+	 * Each type of list (own/shared) has 3 bean processors:
 	 *
 	 * - trashCanProcessor : removes the bean or breaks its association with the current bean
 	 * - additionProcessor : associates the bean with the current one
 	 * - residueProcessor  : manages beans in lists that 'remain' but may need to be updated
-	 * 
+	 *
 	 * This method first groups the beans and then calls the
 	 * internal processing methods.
 	 *
@@ -15838,7 +15838,7 @@ class Facade
 
 	/**
 	 * Given a bean and an optional SQL snippet,
-	 * this method will return the bean together with all 
+	 * this method will return the bean together with all
 	 * child beans in a hierarchically structured
 	 * bean table.
 	 *
@@ -16591,7 +16591,7 @@ use RedBeanPHP\RedException as RedException;
  * Dispense Helper
  *
  * A helper class containing a dispense utility.
- * 
+ *
  * @file    RedBeanPHP/Util/DispenseHelper.php
  * @author  Gabor de Mooij and the RedBeanPHP Community
  * @license BSD/GPLv2
@@ -17374,7 +17374,7 @@ use RedBeanPHP\Finder;
  *
  * The Look Utility class provides an easy way to generate
  * tables and selects (pulldowns) from the database.
- * 
+ *
  * @file    RedBeanPHP/Util/Diff.php
  * @author  Gabor de Mooij and the RedBeanPHP Community
  * @license BSD/GPLv2
@@ -17536,11 +17536,11 @@ class Tree {
 	 *
 	 * @note this only works for databases that support
 	 * recusrive common table expressions.
-	 * 
+	 *
 	 * Usage:
 	 *
 	 * <code>
-	 * $newsArticles = R::children( $newsPage, ' ORDER BY title ASC ' ) 
+	 * $newsArticles = R::children( $newsPage, ' ORDER BY title ASC ' )
 	 * $newsArticles = R::children( $newsPage, ' WHERE title = ? ', [ $t ] );
 	 * $newsArticles = R::children( $newsPage, ' WHERE title = :t ', [ ':t' => $t ] );
 	 * </code>
