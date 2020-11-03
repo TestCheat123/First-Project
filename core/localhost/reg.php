@@ -10,7 +10,7 @@
   </head>
   <body>
     <form class="registr" action="link/sign_up.php" method="post">
-        <p>Введите свой логин | имя пользователя</p>
+        <p>Введите свой логин</p>
         <input type="text" name="login" placeholder="логин" value="<?php echo @$_SESSION['reg']['login'];?>">
         <p>Введите имя пользователя</p>
         <input type="text" name="username" placeholder="имя пользователя" value="<?php echo @$_SESSION['reg']['username'];?>">
