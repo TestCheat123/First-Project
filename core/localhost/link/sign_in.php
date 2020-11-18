@@ -14,6 +14,7 @@
     if( password_verify($password, $user->password) ) {
       $_SESSION['logged_user'] = $user;
       $_SESSION['username'] = $user['username'];
+      unset($_SESSION['auth']['login']);
       header('location: ../index.php');
     }
     else {

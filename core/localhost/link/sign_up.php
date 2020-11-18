@@ -7,6 +7,7 @@
   $email = $_POST['email'];
   $password = $_POST['password'];
   $password_2 = $_POST['password_2'];
+  $checkRule = $_POST['forumRule'];
 
   $_SESSION['reg']['login'] = $login;
   $_SESSION['reg']['username'] = $username;
@@ -42,21 +43,30 @@
                 header ('location: ../reg.php');
               }
               else{
-                if ( $password == $password_2 ) {
-
-                  //Регистрация
-
-                  $user = R::dispense('users');
-                  $user->login = $login;
-                  $user->username = $username;
-                  $user->email = $email;
-                  $user->password = password_hash($password, PASSWORD_DEFAULT);
-                  R::store($user);
-                  header('location: ../index.php');
+                if ( $checkRule == '' ) {
+                  $_SESSION['message'] = 'Подтвердите согласие с правилами пользования форумом';
+                  header ('location: ../reg.php');
                 }
-              else{
-                $_SESSION['message'] = 'Пароли не совпадают';
-                header ('location: ../reg.php');
+                else {
+                  if ( $password == $password_2 ) {
+
+                    //Регистрация
+
+                    $user = R::dispense('users');
+                    $user->login = $login;
+                    $user->username = $username;
+                    $user->email = $email;
+                    $user->password = password_hash($password, PASSWORD_DEFAULT);
+                    R::store($user);
+                    unset($_SESSION['reg']['login']);
+                    unset($_SESSION['reg']['username']);
+                    unset($_SESSION['reg']['email']);
+                    header('location: ../index.php');
+                  }
+                else{
+                  $_SESSION['message'] = 'Пароли не совпадают';
+                  header ('location: ../reg.php');
+                  }
                 }
               }
             }

@@ -7,7 +7,7 @@ body {
   width: 100%;
   height: 100%;
   color: #d1d1d9;
-  background-image: url("/img/background.jpg");
+  background-image: url("/img/background.png");
   font-family: "Segoe UI", sans-serif;
   font-size: 1em;
 }
@@ -32,7 +32,10 @@ header {
 
 ::selection {background: white; color: black }
 
-.logo {
+.logo{
+
+}
+.name {
   margin: 5px;
   font-size: 2em;
 
@@ -53,7 +56,29 @@ img {
   float: left;
 }
 
-.regauth {
+.menu {
   margin: 10px;
   float: right;
+  display: flex;
+}
+.username{
+padding-right: 10px;
+}
+
+.logo {
+  width: 50%;
+}
+
+.imglogo {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.institutions {
+  float: left;
+  width: 100%;
+  height: 100px;
+  background-color: green;
 }
