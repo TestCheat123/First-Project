@@ -1,5 +1,9 @@
 <?php
   require 'link/db.php';
+  $instList = R::loadAll('institutions', array(1,2));
+  unset($_SESSION['auth']);
+  unset($_SESSION['reg']);
+
 ?>
 
 <!DOCTYPE html>
@@ -32,10 +36,9 @@
     <div class="institutions">
       <p>Выберите институт (или оффтоп)</p>
       <ul class="instList">
-        <?php
-
-
-        ?>
+        <li> <a href="razdeli.php?inst=1"> <?php echo $instList['1']['name']; ?> </a> </li>
+        <li> <a href="razdeli.php?inst=2"> <?php echo $instList['2']['name']; ?> </a> </li>
+        <li> <a href="#"> <?php  ?> </a> </li>
       </ul>
     </div>
   </body>
