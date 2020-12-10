@@ -82,7 +82,6 @@
                     <div class="option">
                           <a href="direction.php?inst=14"> <?php echo $instList['14']['name']; ?> </a>
                     </div>
-
            </div>
     <p>
         <?php dump($_SESSION['status']) ?>
