@@ -18,73 +18,39 @@
     </head>
     <body>
         <header>
-            <img class="header_logo" src="img/logo.png" alt="">
-            <a class="header_name" href="#">КемГУ Форум</a>
-            <div class="header_menu">
-                <?php
-                    if( isset($_SESSION['logged_user'])) : ?>
-                <a class="username" href="profile.php">
-                    <?php echo $_SESSION['username']; ?>
-                </a>
-                <a class="exit" href="/link/logout.php">Выход</a>
+                <a class="header_name" href="index.php">
+                <img class="header_logo" src="img/logo.png" alt=""></a>
+                <a class="header_logo_text" href="index.php">КемГУ Форум</a>
+                <div class="header_account">
+                    <?php if( isset($_SESSION['logged_user'])) : ?>
+                    <a class="exit" href="/link/logout.php">Выход</a>
+                    <a class="username" href="profile.php"> <?php echo $_SESSION['username']; ?> </a>
                     <?php else : ?>
-                <p>
-                    <a href="auth.php">Вход</a> | <a href="reg.php">Регистрация</a>
-                </p>
-                <?php endif; ?>
-            </div>
+                    <a class="reg" href="reg.php">Регистрация</a>
+                    <a class="auth" href="auth.php">Вход</a>
+                    <?php endif; ?>
+                </div>
         </header>
-        <a id="main" href="index.php">Главная</a>
-            <a
-                  href="#"> <?php if ($_SESSION['status'] > 0 and $_SESSION['status'] < 10) { echo $instList['1']['name'];} ?>
-            </a>
+        <a class="adress" href="index.php">Главная</a>
+        <a href="#"> <?php if ($_SESSION['status'] > 0 and $_SESSION['status'] < 10) { echo $instList['1']['name']; }?></a>
            <div class="sections">
                 <p>Выберите раздел</p>
                 <hr>
-                    <div class="option">
-                        <a href="direction.php?inst=1"> <?php echo $instList['1']['name']; ?> </a>
-                    </div>
-                    <div class="option">
-                          <a href="direction.php?inst=2"> <?php echo $instList['2']['name']; ?> </a>
-                    </div>
-                                        <div class="option">
-                          <a href="direction.php?inst=3"> <?php echo $instList['3']['name']; ?> </a>
-                    </div>
-                                        <div class="option">
-                          <a href="direction.php?inst=4"> <?php echo $instList['4']['name']; ?> </a>
-                    </div>
-                                        <div class="option">
-                          <a href="direction.php?inst=5"> <?php echo $instList['5']['name']; ?> </a>
-                    </div>
-                                        <div class="option">
-                          <a href="direction.php?inst=6"> <?php echo $instList['6']['name']; ?> </a>
-                    </div>
-                                        <div class="option">
-                          <a href="direction.php?inst=7"> <?php echo $instList['7']['name']; ?> </a>
-                    </div>
-                                        <div class="option">
-                          <a href="direction.php?inst=8"> <?php echo $instList['8']['name']; ?> </a>
-                    </div>
-                                        <div class="option">
-                          <a href="direction.php?inst=9"> <?php echo $instList['9']['name']; ?> </a>
-                    </div>
-                                        <div class="option">
-                          <a href="direction.php?inst=10"> <?php echo $instList['10']['name']; ?> </a>
-                    </div>
-                                   <div class="option">
-                          <a href="direction.php?inst=11"> <?php echo $instList['11']['name']; ?> </a>
-                    </div>
-                                        <div class="option">
-                          <a href="direction.php?inst=12"> <?php echo $instList['12']['name']; ?> </a>
-                    </div>                    <div class="option">
-                          <a href="direction.php?inst=13"> <?php echo $instList['13']['name']; ?> </a>
-                    </div>
-                    <div class="option">
-                          <a href="direction.php?inst=14"> <?php echo $instList['14']['name']; ?> </a>
-                    </div>
+                <a class="option" href="direction.php?inst=1"> <?php echo $instList['1']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=2"> <?php echo $instList['2']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=3"> <?php echo $instList['3']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=4"> <?php echo $instList['4']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=5"> <?php echo $instList['5']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=6"> <?php echo $instList['6']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=7"> <?php echo $instList['7']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=8"> <?php echo $instList['8']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=9"> <?php echo $instList['9']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=10"> <?php echo $instList['10']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=11"> <?php echo $instList['11']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=12"> <?php echo $instList['12']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=13"> <?php echo $instList['13']['name']; ?> </a>
+                <a class="option" href="direction.php?inst=14"> <?php echo $instList['14']['name']; ?> </a>
            </div>
-    <p>
-        <?php dump($_SESSION['status']) ?>
-    </p>
+        <p> <?php dump($_SESSION['status']) ?> </p>
     </body>
 </html>

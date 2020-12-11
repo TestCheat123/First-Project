@@ -410,24 +410,28 @@ template {
 
 a{
     text-decoration: none;
-    color: #FFF;
+    color: #000000;
 }
 
 a:active{
     color: #000;
 }
 
-a:visited{
-    color: #000;
-}
+
 
 body{
     background-image: url(../img/background.jpg);
+    background-position: center;
+    background-attachment: fixed;
     font-family: 'Gerbera';
     font-size: 16px;
     color: #000000;
 }
 
+h1{
+    padding-left: 20px;
+    margin-top: 10px;
+}
 
 header {
     width: 88.5416666667%;
@@ -435,44 +439,61 @@ header {
     background-color: #ffffff;
     margin-left: 5.72916666667%;
     margin-right: 5.72916666667%;
-    display: flex;
+    display: block;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
 }
 
 .header_logo{
     width: 27px;
     height: 27px;
-    padding-left: 25px;
+    padding-left: 20px;
     padding-right: 20px;
     padding-top: 2px;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
+    float: left;
 }
 
 
-.header_name{
-    font-size: 20px;
+.header_logo_text{
+    font-size: 19px;
+    fon
     color: #000000;
-    padding-top: 2px;
+    padding-top: 4px;
+    float: left;
+
 }
 
-.header_menu{
-    font-size: 14px;
-    color: #000;
-    margin-left: 80%;
+.header_account{
+    float: right;
+    line-height: 2em;
+    padding-right: 20px;
+}
+
+.auth{
+    float: right;
+    line-height: 2em;
+    padding-right: 20px;
+}
+
+.reg{
+    float: right;
+    line-height: 2em;
+    padding-right: 20px;
 }
 
 .username{
-    font-size: 14px;
-    color: #000;
-    margin-left: 80%;
-}
-.exit{
-    font-size: 14px;
-    color: #000;
-    margin-left: 80%;
+    float: right;
+    line-height: 2em;
+    padding-right: 10px;
 }
 
-#main {
+.exit{
+    float: right;
+    line-height: 2em;
+    padding-right: 20px;
+}
+
+.adress{
     font-size: 12px;
     margin-left: 5.72916666667%;
 }
@@ -499,22 +520,65 @@ hr{
     text-align: center;
     font-size: 20px;
     background: #FFF;
-    color:black;
-    float:left;
+    color: black;
+    float: left;
     margin-top: 30px;
     margin-left: 10px;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
-    height: 40px;
-    line-height: 2em;
+    line-height: 40px;
 }
 
 .option:hover{
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
-    font-size: 21px;
     transition: .3s all;
 }
 
+#auth_reg{
+    margin: 0px;
+    margin-left: 5.72916666667%;
+    margin-right: 5.72916666667%;
+    margin-top: 30px;
+}
 
+.auth_reg{
+    display: flex;
+    margin-left: 5.72916666667%;
+    margin-right: 5.72916666667%;
+}
 
+.log_pass p{
+    font-size: 22px;
+    margin-top: 50px;
+}
 
+.input_login{
+    margin-top: 50px;
+    margin-left: 20px;
+    color: #FFF;
+    border: none;
+    border-left: 2px solid;
+    border-radius: 5px;
+}
 
+.input_pass{
+    margin-top: 40px;
+    margin-left: 20px;
+    color: #FFF;
+    border: none;
+    border-left: 2px solid;
+    border-radius: 5px;
+}
+
+.auht_footer button{
+    margin-left: 0px;
+    font-size: 22px;
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.auht_footer{
+    margin-top: 10px;
+    margin-left: 5.72916666667%;
+}
