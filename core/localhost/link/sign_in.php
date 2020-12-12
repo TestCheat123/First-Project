@@ -5,7 +5,7 @@
   $login = $_POST['login'];
   $username = $_POST['username'];
   $password = $_POST['password'];
-
+  $url = $_SESSION['url'];
   $_SESSION['auth']['login'] = $login;
 
   $errors = array();
@@ -15,10 +15,10 @@
       $_SESSION['logged_user'] = $user;
       $_SESSION['username'] = $user['username'];
       unset($_SESSION['auth']['login']);
-      header('location: ../index.php');
+      header("Location: /$url");
     }
     else {
-      $_SESSION['message'] = 'Пароль введён неверно';
+      $_SESSION['message'] = 'Пароль ввеsдён неверно';
       header ('location: ../auth.php');
     }
   }

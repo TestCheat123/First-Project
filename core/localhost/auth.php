@@ -15,7 +15,7 @@
         <p>Введите свой пароль</p>
         <input type="password" name="password" placeholder="пароль">
         <p><button type="submit" name="do_login">Вход</button></p>
-        <p>У вас уже есть аккаунт? - <a href="reg.php">зарегистрируйтесь</a> </p>
+        <p>У вас еще нет аккаунта? - <a href="reg.php">зарегистрируйтесь</a> </p>
         <?php
             if ($_SESSION['message']) {
                 echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';

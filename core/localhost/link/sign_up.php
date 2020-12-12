@@ -34,7 +34,7 @@
         header ('location: ../reg.php');
       }
         else{
-          if ( preg_match("/^[а-яА-ЯёЁa-zA-Z0-9\-_]+$/",$username) ) {
+          if ( !preg_match("/[^(\w)|(\x7F-\xFF)|(\s)]/",$username) ) {
             $_SESSION['message'] = 'Имя пользователя введено неверно 11';
             header ('location: ../reg.php');
           }
@@ -64,7 +64,7 @@
                       header ('location: ../reg.php');
                     }
                     else {
-                      if ( $password === $password_2 ) {
+                      if ( $password != $password_2 ) {
                         $_SESSION['message'] = 'Пароли не совпадают';
                         header ('location: ../reg.php');
                       }

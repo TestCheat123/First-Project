@@ -1,8 +1,11 @@
 <?php
   require 'link/db.php';
-  $instList = R::loadAll('institutions', array(1,2));
+  require 'test/testing.php';
+
   unset($_SESSION['auth']);
   unset($_SESSION['reg']);
+  unset($_SESSION['status']);
+  $_SESSION['url'] = 'index.php';
 
 ?>
 
@@ -11,11 +14,10 @@
   <head>
     <meta charset="utf-8">
     <title>КемГУ Форум</title>
-    <link rel="stylesheet" href="css/master.css">
   </head>
   <body>
     <header>
-      <a class="name" href="#"><img class="imglogo" src="img/logo.png" alt="">КемГУ Форум</a>
+      <a class="name" href="index.php"><img class="imglogo" src="img/logo.png" alt="">КемГУ Форум</a>
       <div class="menu">
         <?php
           if( isset($_SESSION['logged_user'])) : ?>
@@ -31,15 +33,17 @@
       </div>
     </header>
     <div class="adress">
-      <a href="#">Главная</a>
+      <a href="index.php">Главная</a> <a href="#"> <?php if ($_SESSION['status'] > 0 and $_SESSION['status'] < 15) { echo $instList['1']['name'];} ?></a>
     </div>
     <div class="institutions">
       <p>Выберите институт (или оффтоп)</p>
       <ul class="instList">
-        <li> <a href="razdeli.php?inst=1"> <?php echo $instList['1']['name']; ?> </a> </li>
-        <li> <a href="razdeli.php?inst=2"> <?php echo $instList['2']['name']; ?> </a> </li>
-        <li> <a href="#"> <?php  ?> </a> </li>
+        <?php foreach ($instList as $insts): ?>
+          <li> <a href="direction.php?inst=<?php echo $insts['id']; ?>"> <?php echo $insts['name']; ?> </a> </li>
+        <?php endforeach; ?>
       </ul>
     </div>
+    <p><?php dump($instList) ?></p>
+
   </body>
 </html>
