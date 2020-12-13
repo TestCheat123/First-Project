@@ -30,7 +30,7 @@
                    <div class="log_pass"> <p> Логин </p> <p> Пароль </p> </div>
                 <form class="form_input" action="link/sign_in.php" method="post">
                     <input class="input_login" type="text" name="login" placeholder="логин" value=" <?php echo @$_SESSION['auth']['login'];?>">
-                    <br></br>
+                    <br>
                     <input class="input_pass" type="password" name="password" placeholder="пароль">
                     </br>
                     <?php if ($_SESSION['message']) { echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>'; } unset($_SESSION['message']); ?>
