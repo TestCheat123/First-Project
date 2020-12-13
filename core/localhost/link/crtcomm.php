@@ -1,7 +1,7 @@
 <?php
   require 'db.php';
   $text = $_POST['text'];
-  $username = $_SESSION['username'];
+  $username = $_SESSION['user']['username'];
   $theme = $_SESSION['id'];
   if (strlen($text) <1) {
     $_SESSION['massege'] = 'Ошибка';

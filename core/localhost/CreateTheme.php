@@ -6,13 +6,32 @@
 
 <!DOCTYPE html>
 <html lang="ru" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div class="">
-
+    <head>
+        <meta charset="utf-8">
+        <title>КемГУ Форум</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+                <a class="header_name" href="index.php">
+                <img class="header_logo" src="img/logo.png" alt=""></a>
+                <a class="header_logo_text" href="index.php">КемГУ Форум</a>
+                <div class="header_account">
+                    <?php if( isset($_SESSION['logged_user'])) : ?>
+                    <a class="exit" href="/link/logout.php">Выход</a>
+                    <a class="username" href="profile.php"> <?php echo $_SESSION['user']['username']; ?> </a>
+                    <?php else : ?>
+                    <a class="reg" href="reg.php">Регистрация</a>
+                    <a class="auth" href="auth.php">Вход</a>
+                    <?php endif; ?>
+                </div>
+        </header>
+        <div class="adress">
+          <a href="index.php">Главная</a>
+          <a href="direction.php?inst=<?php echo $_SESSION['inst']; ?>"> <?php if ($_SESSION['inst'] > 0 && $_SESSION['inst'] < 15) { echo $instList[$_SESSION['inst']]['name'];} ?></a>
+          <a href="section.php?direction=<?php echo $_SESSION['direction']; ?>"><?php if($_SESSION['direction'] >0 && $_SESSION['direction'] < 10) { echo $direction[$_SESSION['direction']]['name'];} ?></a>
+          <a href="article.php?course=<?php echo $_SESSION['course']; ?>"><?php if($_SESSION['course'] > 0 && $_SESSION['course'] < 5) { echo $courses[$_SESSION['course']]['name']; } ?></a>
+        </div>
     <?php if (isset($_SESSION['logged_user'])): ?>
       <form action="link/crt.php" method="post">
           <label for="name">Название статьи</label><br>
@@ -34,7 +53,7 @@
       <p> <a href="auth.php">Авторизируйтесь!</a> </p>
     <?php endif; ?>
 
-    <p><?php dump($_SESSION['username']) ?></p>
+    <p><?php //dump($_SESSION['username']) ?></p>
     </div>
   </body>
 </html>

@@ -14,8 +14,23 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <header>
+            <a class="header_name" href="index.php">
+            <img class="header_logo" src="img/logo.png" alt=""></a>
+            <a class="header_logo_text" href="index.php">КемГУ Форум</a>
+            <div class="header_account">
+                <?php if( isset($_SESSION['logged_user'])) : ?>
+                <a class="exit" href="/link/logout.php">Выход</a>
+                <a class="username" href="profile.php"> <?php echo $_SESSION['user']['username']; ?> </a>
+                <?php else : ?>
+                <a class="reg" href="reg.php">Регистрация</a>
+                <a class="auth" href="auth.php">Вход</a>
+                <?php endif; ?>
+            </div>
+    </header>
     <div class="adress">
       <a href="index.php">Главная</a>
       <a href="direction.php?inst=<?php echo $_SESSION['inst']; ?>"> <?php if ($_SESSION['inst'] > 0 && $_SESSION['inst'] < 15) { echo $instList[$_SESSION['inst']]['name'];} ?></a>
@@ -40,6 +55,7 @@
           <button type="submit" name="button">Добавить комментарий</button>
         </form>
         <div class="comm">
+          <p>Комментарии:</p>
           <?php foreach ($comms as $comm): ?>
             <ul>
               <li>
@@ -55,7 +71,7 @@
             }
             unset($_SESSION['message']);
         ?>
-        <?php dump($_SESSION['username']) ?>
+        <?php //dump($_SESSION['username']) ?>
       </div>
     </div>
   </body>

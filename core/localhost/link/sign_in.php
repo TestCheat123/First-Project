@@ -19,7 +19,7 @@
       header("Location: /$url");
     }
     else {
-      $_SESSION['message'] = 'Пароль ввеsдён неверно';
+      $_SESSION['message'] = 'Пароль введён неверно';
       header ('location: ../auth.php');
     }
   }

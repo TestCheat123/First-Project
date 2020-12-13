@@ -3,7 +3,7 @@
   $status = $_SESSION['status'];
   $name = $_POST['name'];
   $text = $_POST['text'];
-  $username = $_SESSION['username'];
+  $username = $_SESSION['user']['username'];
 
 
   if (strlen($name) < 1 or strlen($name) > 100) {
