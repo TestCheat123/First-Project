@@ -1,20 +1,19 @@
 <?php
-  session_start();
-
   require_once 'db.php';
+
   $login = $_POST['login'];
   $username = $_POST['username'];
   $email = $_POST['email'];
   $password = $_POST['password'];
   $password_2 = $_POST['password_2'];
   $checkRule = $_POST['forumRule'];
-  /*$avatar = array();
+  $avatar = array();
   $avatar['fileName'] = $_FILES['avatar']['name'];
   $avatar['fileSize'] = $_FILES['avatar']['size'];
   $avatar['fileTmp'] = $_FILES['avatar']['tmp_name'];
   $avatar['fileType'] = $_FILES['avatar']['type'];
   $avatar['fileExt'] = strtolower(end(explode('.',$_FILES['avatar']['name'] )));
-  $avatar['expensions'] = array('.jpg','.JPG','.jpeg','.gif','.bmp','.png');*/
+  $avatar['expensions'] = array('.jpg','.JPG','.jpeg','.gif','.bmp','.png');
   $_SESSION['reg']['login'] = $login;
   $_SESSION['reg']['username'] = $username;
   $_SESSION['reg']['email'] = $email;
@@ -34,13 +33,13 @@
         header ('location: ../reg.php');
       }
         else{
-          if ( !preg_match("/[^(\w)|(\x7F-\xFF)|(\s)]/",$username) ) {
+          if ( preg_match("/[^(\w)|(\x7F-\xFF)|(\s)]/",$username) ) {
             $_SESSION['message'] = 'Имя пользователя введено неверно 11';
             header ('location: ../reg.php');
           }
           else {
             if ( strlen($username) < 3 or strlen($username) > 30 ) {
-              $_SESSION['message'] = 'Имя пользователя введено неверно 22';
+              $_SESSION['message'] = 'Имя пользователя должно быть больше 3 символов и меньше 30';
               header ('location: ../reg.php');
             }
             else {
@@ -72,12 +71,30 @@
                         if ( $checkRule != '' ) {
 
                           //Регистрация
-                          //move_uploaded_file($avatar['fileTmp'], "../avatars/full" . $avatar['fileName']);
+                          if ($avatar['fileName'] == "") {
+                            $avatr = "avatars/default/defaultavatar";
+                            move_uploaded_file($avatar['fileTmp'], $avatr);
+                          } else {
+                            if ($avatar['fileSize'] > 2097152) {
+                              $_SESSION['message'] = 'Размер файла не должен превышать 256 КБ';
+                              header ('location: ../reg.php');
+                            } else {
+                              if (substr(strrchr($avatar['fileName'], '.'), 1) != $avatar['expensions']) {
+                                $_SESSION['message'] = 'Не подходящий тип файла';
+                                header ('location: ../reg.php');
+                              } else {
+                                $avatr = "../avatars/full/" . time() . "_" . basename($avatar['fileName']);
+                                move_uploaded_file($avatar['fileTmp'], $avatr);
+                              }
+                            }
+                          }
+
                           $user = R::dispense('users');
                           $user->login = $login;
                           $user->username = $username;
                           $user->email = $email;
                           $user->password = password_hash($password, PASSWORD_DEFAULT);
+                          $user->avatar = $avatr;
 
                           R::store($user);
                           unset($_SESSION['reg']['login']);

@@ -13,7 +13,8 @@
   if( $user ) {
     if( password_verify($password, $user->password) ) {
       $_SESSION['logged_user'] = $user;
-      $_SESSION['username'] = $user['username'];
+      $_SESSION['user']['username'] = $user->username;
+      $_SESSION['user']['avatar'] = $user->avatar;
       unset($_SESSION['auth']['login']);
       header("Location: /$url");
     }

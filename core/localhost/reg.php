@@ -37,8 +37,8 @@
         <input type="password" name="password" placeholder="пароль">
         <p>Для подтверждения пароля, введите его еще раз</p>
         <input type="password" name="password_2" placeholder="подтверждение пароля">
-      <!--  <p>Добавьте свой автар (Не обязательно)</p>
-            <input type="file" name="avatar">--><br>
+        <p>Добавьте свой автар (Не обязательно)</p>
+            <input type="file" name="avatar"><br>
         <input type="checkbox" name="forumRule" value="1"><span>нажимая на кнопку Зарегистрироваться, я соглашаюсь с </span><a href="#">Правила пользования форума</a>
         <p><button type="submit" name="do_signup">Зарегистрироваться</button></p>
         <p>У вас уже есть аккаунт? - <a href="auth.php">авторизируйтесь!</a> </p>

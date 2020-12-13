@@ -23,7 +23,7 @@
           if( isset($_SESSION['logged_user'])) : ?>
         <p class="username">
           <?php
-            echo $_SESSION['username'];
+            echo $_SESSION['user']['username'];
           ?>
         </p>
         <a href="/link/logout.php">exit</a>
@@ -43,7 +43,7 @@
         <?php endforeach; ?>
       </ul>
     </div>
-    <p><?php dump($instList) ?></p>
-
+    <p><?php echo $_SESSION['user']['avatar']; ?></p>
+    <img src="<?php echo $_SESSION['user']['avatar'] ?>" alt="">
   </body>
 </html>

@@ -4,8 +4,8 @@
   $username = $_SESSION['username'];
   $theme = $_SESSION['id'];
   if (strlen($text) <1) {
-    header ('location: ../theme.php');
     $_SESSION['massege'] = 'Ошибка';
+    header ('location: ../theme.php');
   }
   else {
       $comm = R::dispense('comms');
