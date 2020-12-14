@@ -41,5 +41,16 @@ require 'link/db.php';
         </div>
       </div>
     </div>
+    <form class="" action="profile.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="avatar"><br>
+      <p><button type="submit" name="do_avatar">Добавить автар</button></p>
+      <?php
+        if ($_POST['do_avatar']) {
+          $_SESSION['1'] = "1234";
+        }
+
+      ?>
+    </form>
+    <p><?php echo $_SESSION['1'] ?></p>
   </body>
 </html>

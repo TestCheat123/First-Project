@@ -13,7 +13,7 @@
   $avatar['fileTmp'] = $_FILES['avatar']['tmp_name'];
   $avatar['fileType'] = $_FILES['avatar']['type'];
   $avatar['fileExt'] = strtolower(end(explode('.',$_FILES['avatar']['name'] )));
-  $avatar['expensions'] = array('.jpg','.JPG','.jpeg','.gif','.bmp','.png');
+  $avatar['expensions'] = array('jpg','JPG','jpeg','gif','bmp','png');
   $_SESSION['reg']['login'] = $login;
   $_SESSION['reg']['username'] = $username;
   $_SESSION['reg']['email'] = $email;
@@ -72,18 +72,18 @@
 
                           //Регистрация
                           if ($avatar['fileName'] == "") {
-                            $avatr = "avatars/default/defaultavatar";
+                            $avatr = "avatars/default/defaultavatar.png";
                             move_uploaded_file($avatar['fileTmp'], $avatr);
                           } else {
                             if ($avatar['fileSize'] > 2097152) {
                               $_SESSION['message'] = 'Размер файла не должен превышать 256 КБ';
                               header ('location: ../reg.php');
                             } else {
-                              if (substr(strrchr($avatar['fileName'], '.'), 1) != $avatar['expensions']) {
+                              if ( !in_array(substr(strrchr($avatar['fileName'], '.'), 1), $avatar['expensions']) ) {
                                 $_SESSION['message'] = 'Не подходящий тип файла';
                                 header ('location: ../reg.php');
                               } else {
-                                $avatr = "../avatars/full/" . time() . "_" . basename($avatar['fileName']);
+                                $avatr = "avatars/full/" . time() . "_" . basename($avatar['fileName']);
                                 move_uploaded_file($avatar['fileTmp'], $avatr);
                               }
                             }
