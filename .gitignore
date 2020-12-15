@@ -1,3 +1,5 @@
 documents/
+documents/**/*.docx
 maket/
+core/localhost/avatars/full
 *.docx

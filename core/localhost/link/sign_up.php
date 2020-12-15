@@ -83,7 +83,7 @@
                                 $_SESSION['message'] = 'Не подходящий тип файла';
                                 header ('location: ../reg.php');
                               } else {
-                                $avatr = "avatars/full/" . time() . "_" . basename($avatar['fileName']);
+                                $avatr = "../avatars/full/" . time() . "_" . basename($avatar['fileName']);
                                 move_uploaded_file($avatar['fileTmp'], $avatr);
                               }
                             }

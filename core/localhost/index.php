@@ -24,7 +24,7 @@
                 <a class="header_logo_text" href="index.php">КемГУ Форум</a>
                 <div class="header_account">
                     <?php if( isset($_SESSION['logged_user'])) : ?>
-                    <img src="<?php echo $_SESSION['user']['avatar'] ?>" alt="">
+                    <img src="avatars\full\DSCN1829.JPG" alt="">
                     <a class="exit" href="/link/logout.php">Выход</a>
                     <a class="username" href="profile.php"> <?php echo $_SESSION['user']['username']; ?> </a>
                     <?php else : ?>
@@ -53,6 +53,6 @@
                 <a class="option" href="direction.php?inst=13"> <?php echo $instList['13']['name']; ?> </a>
                 <a class="option" href="direction.php?inst=14"> <?php echo $instList['14']['name']; ?> </a>
            </div>
-           
+
     </body>
 </html>
