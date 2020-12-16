@@ -5,8 +5,7 @@
     $_SESSION['id'] = $_GET['id'];
   }
   $theme = R::findOne('theme', 'id = ?', [$_SESSION['id']]);
-  $comms = R::findAll('comms', 'idtheme = ?', [$_SESSION['id']],)
-
+  $comms = R::findAll('comms', 'idtheme = ?', [$_SESSION['id']]);
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +22,7 @@
             <a class="header_logo_text" href="index.php">КемГУ Форум</a>
             <div class="header_account">
                 <?php if( isset($_SESSION['logged_user'])) : ?>
+                <img class="ava" src="<?php echo $_SESSION['user']['avatar'] ?>" alt="">
                 <a class="exit" href="/link/logout.php">Выход</a>
                 <a class="username" href="profile.php"> <?php echo $_SESSION['user']['username']; ?> </a>
                 <?php else : ?>
@@ -32,38 +32,33 @@
             </div>
     </header>
     <div class="adress">
-      <a href="index.php">Главная</a>
-      <a href="direction.php?inst=<?php echo $_SESSION['inst']; ?>"> <?php if ($_SESSION['inst'] > 0 && $_SESSION['inst'] < 15) { echo $instList[$_SESSION['inst']]['name'];} ?></a>
-      <a href="section.php?direction=<?php echo $_SESSION['direction']; ?>"><?php if($_SESSION['direction'] >0 && $_SESSION['direction'] < 10) { echo $direction[$_SESSION['direction']]['name'];} ?></a>
-      <a href="article.php?course=<?php echo $_SESSION['course']; ?>"><?php if($_SESSION['course'] > 0 && $_SESSION['course'] < 5) { echo $courses[$_SESSION['course']]['name']; } ?></a>
+        <a href="index.php">Главная</a>
+        <a href="direction.php?inst=<?php echo $_SESSION['inst']; ?>"> > <?php if ($_SESSION['inst'] > 0 && $_SESSION['inst'] < 15) { echo $instList[$_SESSION['inst']]['name'];} ?></a>
+        <a href="section.php?direction=<?php echo $_SESSION['direction']; ?>"> > <?php if($_SESSION['direction'] >0 && $_SESSION['direction'] < 10) { echo $direction[$_SESSION['direction']]['name'];} ?></a>
+        <a href="article.php?course=<?php echo $_SESSION['course']; ?>"> > <?php if($_SESSION['course'] > 0 && $_SESSION['course'] < 5) { echo $courses[$_SESSION['course']]['name']; } ?></a>
     </div>
     <div class="theme">
-      <div class="usernametheme">
-        <p><?php echo $theme['username']; ?></p>
-      </div>
-      <div class="nameTheme">
-        <p><?php echo $theme['name'] ?></p>
-      </div>
-      <div class="desTheme">
-        <p><?php echo $theme['description']; ?></p>
-      </div>
+        <div class="usernametheme">  <?php echo $theme['username']; ?> </div>
+        <div class="nameTheme"> <?php echo $theme['name'] ?></div>
+        <div class="desTheme"> <?php echo $theme['description']; ?> </div>
+        <div class="files"> <img src="<?php echo $theme['image']; ?>" alt=""> </div>
     </div>
     <div class="comms">
-      <div class="crtcomm">
-        <form class="formcomm" action="link/crtcomm.php?id=<?php echo $_SESSION['id']; ?>" method="post">
-          <input type="text" name="text" value="">
-          <button type="submit" name="button">Добавить комментарий</button>
-        </form>
-        <div class="comm">
-          <p>Комментарии:</p>
+
           <?php foreach ($comms as $comm): ?>
-            <ul>
-              <li>
-                <p><?php echo $comm['username'] ?></p>
-                <p><?php echo $comm['text'] ?></p>
-              </li>
-            </ul>
+              <div class="comments">
+                  <div class="usernametheme"> <?php echo $comm['username'] ?> </div>
+                  <div class="desTheme"> <?php echo $comm['text'] ?> </div>
+                  <div class=""> <img src="<?php echo $comm['image']; ?>" alt=""></div>
+              </div>
           <?php endforeach; ?>
+
+                <div class="comm_add">
+            <form class="formcomm" action="link/crtcomm.php?id=<?php echo $_SESSION['id']; ?>" method="post" enctype="multipart/form-data">
+            <input class="input_comm" type="text" name="text" value="">
+            <input type="file" name="filescomm" value="">
+            <button class="bottom_kom" type="submit" name="button">Добавить комментарий</button>
+            </form>
         </div>
         <?php
             if ($_SESSION['message']) {
@@ -71,7 +66,7 @@
             }
             unset($_SESSION['message']);
         ?>
-        <?php //dump($_SESSION['username']) ?>
+        <?php //dump($_FILES['filetheme']) ?>
       </div>
     </div>
   </body>

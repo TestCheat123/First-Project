@@ -22,6 +22,7 @@
                 <a class="header_logo_text" href="index.php">КемГУ Форум</a>
                 <div class="header_account">
                     <?php if( isset($_SESSION['logged_user'])) : ?>
+                    <img class="ava" src="<?php echo $_SESSION['user']['avatar'] ?>" alt="">
                     <a class="exit" href="/link/logout.php">Выход</a>
                     <a class="username" href="profile.php"> <?php echo $_SESSION['user']['username']; ?> </a>
                     <?php else : ?>
@@ -31,17 +32,17 @@
                 </div>
         </header>
     <div class="adress">
-      <a id="main" href="index.php">Главная </a>
-      <a href="direction.php?inst=<?php echo $_SESSION['inst']; ?>"> > <?php if ($_SESSION['inst'] > 0 && $_SESSION['inst'] < 10) { echo $instList[$_SESSION['inst']]['name'];} ?></a>
-      <a href="section.php?direction=<?php echo $_SESSION['direction']; ?>"> > <?php if($_SESSION['direction'] >0 && $_SESSION['direction'] < 10) { echo $direction[$_SESSION['direction']]['name'];} ?></a>
+        <a id="main" href="index.php">Главная </a>
+        <a href="direction.php?inst=<?php echo $_SESSION['inst']; ?>"> > <?php if ($_SESSION['inst'] > 0 && $_SESSION['inst'] < 10) { echo $instList[$_SESSION['inst']]['name'];} ?></a>
+        <a href="section.php?direction=<?php echo $_SESSION['direction']; ?>"> > <?php if($_SESSION['direction'] >0 && $_SESSION['direction'] < 10) { echo $direction[$_SESSION['direction']]['name'];} ?></a>
     </div>
-    <div class="IFN">
-      <ul>
-        <li> <a href="article.php?course=1"> <?php echo $courses['1']['name']; ?> </a> </li>
-        <li> <a href="article.php?course=2"> <?php echo $courses['2']['name']; ?> </a> </li>
-        <li> <a href="article.php?course=3"> <?php echo $courses['3']['name']; ?> </a> </li>
-        <li> <a href="article.php?course=4"> <?php echo $courses['4']['name']; ?> </a> </li>
-      </ul>
+    <div class="sections">
+        <p>Выберите курс</p>
+        <hr>
+        <a class="option" href="article.php?course=1"> <?php echo $courses['1']['name']; ?> </a>
+        <a class="option" href="article.php?course=2"> <?php echo $courses['2']['name']; ?> </a>
+        <a class="option" href="article.php?course=3"> <?php echo $courses['3']['name']; ?> </a>
+        <a class="option" href="article.php?course=4"> <?php echo $courses['4']['name']; ?> </a>
     </div>
 <div class="test">
   <p><?php //dump($_GET); ?></p>

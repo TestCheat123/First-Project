@@ -432,6 +432,11 @@ h1{
     margin-top: 10px;
 }
 
+h2{
+    margin-bottom: 0px;
+    margin-bottom: -10px;
+}
+
 header {
     width: 88.5416666667%;
     height: 32px;
@@ -483,6 +488,7 @@ header {
     float: right;
     line-height: 2em;
     padding-right: 10px;
+    padding-left: 10px;
 }
 
 .exit{
@@ -515,8 +521,9 @@ hr{
 .option{
     height: 40px;
     width: 150px;
+    border-radius: 10px;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     background: #FFF;
     color: black;
     float: left;
@@ -528,6 +535,7 @@ hr{
 
 .option:hover{
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
     transition: .3s all;
 }
 
@@ -565,6 +573,81 @@ hr{
     border-radius: 5px;
 }
 
+.input_name{
+    margin-top: 30px;
+    margin-left: 20px;
+    color: #000;
+    border: 2px solid;
+    border-radius: 5px;
+}
+.input_email{
+    margin-top: 50px;
+    margin-left: 20px;
+    color: #000;
+    border: 2px solid;
+    border-radius: 5px;
+}
+.input_pass2{
+    margin-top: 51px;
+    margin-left: 20px;
+    color: #000;
+    border: 2px solid;
+    border-radius: 5px;
+}
+.input_pass3{
+    margin-top: 52px;
+    margin-left: 20px;
+    color: #000;
+    border: 2px solid;
+    border-radius: 5px;
+}
+.form_file{
+    margin-top: 50px;
+}
+
+.input_name_them{
+    margin-top: 50px;
+    margin-left: 20px;
+    color: #000;
+    border: 2px solid;
+    border-radius: 5px;
+}
+.input_text{
+    margin-top: 40px;
+    margin-left: 20px;
+    color: #000;
+    border: 2px solid;
+    border-radius: 5px;
+}
+.bottom_gen{
+    margin-left: -20px;
+    margin-top: 30px;
+    font-size: 22px;
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 5px;
+    float: left;
+    display: block;
+}
+
+
+#underline{
+    text-decoration: underline;
+}
+
+#marginleft{
+    margin-left: 5.72916666667%;
+}
+
+.marginleft{
+    margin-left: 5.72916666667%;
+}
+
+#fixed{
+    margin-left: -68px;
+}
+
 .auht_footer button{
     margin-left: 0px;
     font-size: 22px;
@@ -578,6 +661,127 @@ hr{
     margin-top: 10px;
     margin-left: 5.72916666667%;
 }
+
+.ava{
+    width: 26px;
+    height: 26px;
+    margin-top: 1px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 100px;
+}
+
+.Them{
+    width: 88.5416666667%;
+    font-size: 28px;
+    color: black;
+    float: left;
+    margin-top: 30px;
+    margin-left: 5.72916666667%;
+    overflow: hidden;
+
+}
+.crTheme {
+    font-size: 18px;
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    background: #FFF;
+    color: black;
+    float: left;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+    line-height: 40px;
+    overflow: hidden;
+}
+
+.contentThem{
+    background-color: #FFF;
+    width: 76%;
+    max-height: 200px;
+    margin-top: -50px;
+    border-left: 5px solid black;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+h2 a{
+    margin-left: 20px;
+}
+
+.author{
+    font-size: 20px;
+    margin-left: 20px;
+    color: #5a5a5a;
+}
+
+.theme_text{
+    font-size: 22px;
+    padding: 20px;
+    height: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.theme{
+    margin-left: 5.72916666667%;
+    margin-top: 30px;
+    border-left: 5px solid #000;
+    width: 76%;
+    background-color: #FFF;
+
+}
+
+.usernametheme{
+    padding: 15px;
+    font-size: 20px;
+}
+.nameTheme{
+    padding-bottom: 15px;
+    padding-left: 5px;
+    font-size: 28px;
+}
+.desTheme{
+    padding: 40px;
+    font-size: 18px;
+    overflow: hidden;
+}
+
+.comments{
+    margin-left: 15.72916666667%;
+    margin-top: 30px;
+    border-left: 5px solid #000;
+    width: 66%;
+    height: auto;
+    background-color: #FFF;
+}
+
+.comm_add{
+    margin-left: 15.72916666667%;
+    margin-bottom: 30px;
+}
+
+.bottom_kom{
+    margin-left: 0px;
+    margin-top: 30px;
+    font-size: 22px;
+    color: #000000;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 5px;
+    float: left;
+    display: block;
+}
+
+.input_comm{
+    margin-top: 30px;
+    margin-left: 20px;
+    color: #000;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
 
 
 

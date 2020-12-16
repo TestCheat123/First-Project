@@ -21,6 +21,7 @@
             <a class="header_logo_text" href="index.php">КемГУ Форум</a>
             <div class="header_account">
                 <?php if( isset($_SESSION['logged_user'])) : ?>
+                <img class="ava" src="<?php echo $_SESSION['user']['avatar'] ?>" alt="">
                 <a class="exit" href="/link/logout.php">Выход</a>
                 <a class="username" href="profile.php"> <?php echo $_SESSION['user']['username']; ?> </a>
                 <?php else : ?>
@@ -30,16 +31,16 @@
             </div>
     </header>
     <div class="adress">
-      <a href="index.php">Главная</a>
-      <a href="direction.php?inst=<?php echo $_SESSION['inst']; ?>"> > <?php if ($_SESSION['inst'] > 0 && $_SESSION['inst'] < 15) { echo $instList[$_SESSION['inst']]['name'];} ?></a>
+        <a href="index.php">Главная</a>
+        <a href="direction.php?inst=<?php echo $_SESSION['inst']; ?>"> > <?php if ($_SESSION['inst'] > 0 && $_SESSION['inst'] < 15) { echo $instList[$_SESSION['inst']]['name'];} ?></a>
     </div>
     <?php if ( $_SESSION['status'] == $_GET['inst'] ) :  ?>
-      <div class="direction">
-          <ul>
+        <div class="sections">
+        <p>Выберите группу</p>
+        <hr>
             <?php foreach ($direction as $dir): ?>
-              <li> <a href="section.php?direction=<?php echo $dir['id']; ?>"><?php echo $dir['name']; ?></a> </li>
+            <a  class="option" href="section.php?direction=<?php echo $dir['id']; ?>"><?php echo $dir['name']; ?></a>
             <?php endforeach; ?>
-          </ul>
         </div>
     <?php  endif; ?>
 

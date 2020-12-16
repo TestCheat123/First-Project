@@ -24,7 +24,7 @@
                 <a class="header_logo_text" href="index.php">КемГУ Форум</a>
                 <div class="header_account">
                     <?php if( isset($_SESSION['logged_user'])) : ?>
-                    <img src="avatars\full\DSCN1829.JPG" alt="">
+                    <img class="ava" src="<?php echo $_SESSION['user']['avatar'] ?>" alt="">
                     <a class="exit" href="/link/logout.php">Выход</a>
                     <a class="username" href="profile.php"> <?php echo $_SESSION['user']['username']; ?> </a>
                     <?php else : ?>
@@ -33,7 +33,7 @@
                     <?php endif; ?>
                 </div>
         </header>
-        <a class="adress" href="index.php">Главная</a>
+        <div class="adress"><a href="index.php">Главная</a></div>
         <a href="#"> <?php if ($_SESSION['status'] > 0 and $_SESSION['status'] < 10) { echo $instList['1']['name']; }?></a>
            <div class="sections">
                 <p>Выберите раздел</p>

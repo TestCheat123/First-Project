@@ -16,6 +16,7 @@
                 <a class="header_logo_text" href="index.php">КемГУ Форум</a>
                 <div class="header_account">
                     <?php if( isset($_SESSION['logged_user'])) : ?>
+                    <img class="ava" src="<?php echo $_SESSION['user']['avatar'] ?>" alt="">
                     <a class="exit" href="/link/logout.php">Выход</a>
                     <a class="username" href="profile.php"> <?php echo $_SESSION['user']['username']; ?> </a>
                     <?php else : ?>
@@ -30,28 +31,32 @@
           <a href="section.php?direction=<?php echo $_SESSION['direction']; ?>"><?php if($_SESSION['direction'] >0 && $_SESSION['direction'] < 10) { echo $direction[$_SESSION['direction']]['name'];} ?></a>
           <a href="article.php?course=<?php echo $_SESSION['course']; ?>"><?php if($_SESSION['course'] > 0 && $_SESSION['course'] < 5) { echo $courses[$_SESSION['course']]['name']; } ?></a>
         </div>
-    <form class="registr" action="link/sign_up.php" method="post" enctype="multipart/form-data">
-        <p>Введите свой логин</p>
-        <input type="text" name="login" placeholder="логин" value="<?php echo @$_SESSION['reg']['login'];?>">
-        <p>Введите имя пользователя</p>
-        <input type="text" name="username" placeholder="имя пользователя" value="<?php echo @$_SESSION['reg']['username'];?>">
-        <p>Введите свой email</p>
-        <input type="email" name="email" placeholder="email" value="<?php echo @$_SESSION['reg']['email'];?>">
-        <p>Введите свой пароль</p>
-        <input type="password" name="password" placeholder="пароль">
-        <p>Для подтверждения пароля, введите его еще раз</p>
-        <input type="password" name="password_2" placeholder="подтверждение пароля">
-        <p>Добавьте свой автар (Не обязательно)</p>
-            <input type="file" name="avatar"><br>
-        <input type="checkbox" name="forumRule" value="1"><span>нажимая на кнопку Зарегистрироваться, я соглашаюсь с </span><a href="#">Правила пользования форума</a>
-        <p><button type="submit" name="do_signup">Зарегистрироваться</button></p>
-        <p>У вас уже есть аккаунт? - <a href="auth.php">авторизируйтесь!</a> </p>
-        <?php
-            if ($_SESSION['message']) {
-                echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
-            }
-            unset($_SESSION['message']);
-        ?>
-    </form>
+        <h1 id="auth_reg">Регистрация</h1>
+        <div class="auth_reg">
+            <div class="log_pass"> <p> Логин </p> <p> Имя </p> <p>email</p> <p>Пароль</p> <p>Повторите пароль</p> <p>Аватар</p></div>
+        <form class="form_input" action="link/sign_up.php" method="post" enctype="multipart/form-data">
+            <input class="input_login" type="text" name="login" placeholder="login" value="<?php echo @$_SESSION['reg']['login'];?>">
+            <br>
+            <br><input class="input_name" type="text" name="username" placeholder="name" value="<?php echo @$_SESSION['reg']['username'];?>">
+            <br>
+            <input class="input_email" type="email" name="email" placeholder="email" value="<?php echo @$_SESSION['reg']['email'];?>">
+            <br>
+            <input class="input_pass2" type="password" name="password" placeholder="pass">
+            <br>
+            <input class="input_pass3" type="password" name="password_2" placeholder="pass confirm">
+            <br>
+            <input class="form_file" type="file" name="avatar">
+            <br>
+            <?php if ($_SESSION['message']) { echo '<div class="msg"> ' . $_SESSION['message'] . ' </div>';} unset($_SESSION['message']);?>
+        </div>
+        <div class="auht_footer">
+                <input class="form_input" type="checkbox" name="forumRule" value="1">
+                <span> Нажимая на кнопку "Зарегистрироваться" я соглашаюсь с </span><a id="underline" href="#">правилами пользования форума</a>
+                <br><br>
+                <button class="bottom_auth"type="submit" name="do_signup">Зарегистрироваться</button>
+                <br><br>
+                <a id="underline" href="auth.php">У вас уже есть аккаунт? - Авторизируйтесь!</a>
+        </div>
+        </form>
   </body>
 </html>
