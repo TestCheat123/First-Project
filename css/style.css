@@ -729,7 +729,9 @@ h2 a{
     margin-top: 30px;
     border-left: 5px solid #000;
     width: 76%;
+    max-height: 700px;
     background-color: #FFF;
+    overflow: hidden;
 
 }
 
@@ -754,7 +756,9 @@ h2 a{
     border-left: 5px solid #000;
     width: 66%;
     height: auto;
+    max-height: 400px;
     background-color: #FFF;
+    overflow: hidden;
 }
 
 .comm_add{
@@ -781,6 +785,12 @@ h2 a{
     border: 2px solid;
     border-radius: 5px;
 }
+
+.addfile_them{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
 
 
 

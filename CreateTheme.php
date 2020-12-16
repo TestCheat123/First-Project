@@ -44,7 +44,7 @@
                     <br>
                     <textarea class="input_text" name="text" id="text" rows="10" cols="80"><?= $_POST['text'] ?? '' ?></textarea>
                     <br>
-                    <input type="file" name="files" value="">
+                    <input class="addfile_them" type="file" name="files" value="">
                     <br>
                     <div class="auht_footer">
                     <input class="bottom_gen" type="submit" value="Создать">

@@ -49,7 +49,7 @@
               <div class="comments">
                   <div class="usernametheme"> <?php echo $comm['username'] ?> </div>
                   <div class="desTheme"> <?php echo $comm['text'] ?> </div>
-                  <div class=""> <img src="<?php echo $comm['image']; ?>" alt=""></div>
+                  <div class="imgcomm"> <img src="<?php echo $comm['image']; ?>" alt=""></div>
               </div>
           <?php endforeach; ?>
 
