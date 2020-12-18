@@ -28,18 +28,23 @@
       header('Location: ../CreateTheme.php');
     }
     else {
-      if ( $file['fileSize'] > 167772160 ) {
+        if ( $_FILES['files']['name'] == ''){      
+            } else {
+                   if ( $file['fileSize'] > 167772160 ) {
         $_SESSION['message'] = 'Недопустимый размер файла, максимум 20 МБ';
         header('location: ../CreateTheme.php');
-      } else {
-          if (!in_array(substr(strrchr($file['fileName'], '.'), 1), $file['expensions'])) {
-            $_SESSION['message'] = 'Не подходящий тип файла';
-            header ('location: ../CreateTheme.php');
           } else {
-            $folder = "../file" . "/" . time() . "_" . trim($name) . "/" ;
-            mkdir($folder, 0777);
-            $files = $folder . time() . "_" . basename($avatar['fileName']) . "." .$file['fileExt'];
-            move_uploaded_file($_FILES['files']['tmp_name'],$files);
+              if (!in_array(substr(strrchr($file['fileName'], '.'), 1), $file['expensions'])) {
+                $_SESSION['message'] = 'Не подходящий тип файла';
+                header ('location: ../CreateTheme.php');
+              } else {
+                $folder = "../file" . "/" . time() . "_" . trim($name) . "/" ;
+                mkdir($folder, 0777);
+                $files = $folder . time() . "_" . basename($avatar['fileName']) . "." .$file['fileExt'];
+                move_uploaded_file($_FILES['files']['tmp_name'],$files);
+ 
+              }
+     
 
             $theme = R::dispense('theme');
             $theme->status = $status;
